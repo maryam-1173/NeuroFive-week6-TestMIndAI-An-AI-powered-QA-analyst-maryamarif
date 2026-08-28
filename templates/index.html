@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+```
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="description"
+      content="TestMind AI - Intelligent QA Requirement Analyzer and Test Case Generator">
+
+<title>TestMind AI | Intelligent QA Assistant</title>
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}">
+```
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav class="navbar">
+
+```
+<div class="logo">
+
+    <div class="logo-icon">
+        🧠
+    </div>
+
+    <div>
+
+        <h2>TestMind AI</h2>
+
+        <span>
+            Intelligent QA Assistant
+        </span>
+
+    </div>
+
+</div>
+
+
+<div class="nav-links">
+
+    <a href="#home">
+        Home
+    </a>
+
+    <a href="#how-it-works">
+        How It Works
+    </a>
+
+    <a href="#results">
+        Results
+    </a>
+
+</div>
+```
+
+</nav>
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main id="home">
+
+```
+<!-- =================================================
+     HERO SECTION
+================================================== -->
+
+<section class="hero">
+
+    <div class="hero-badge">
+        ✨ AI-Powered Software Testing
+    </div>
+
+
+    <h1>
+
+        Turn Requirements Into
+
+        <span>
+            Smart Test Cases.
+        </span>
+
+    </h1>
+
+
+    <p>
+
+        TestMind AI analyzes your software requirements
+        and generates structured test cases, edge cases,
+        potential risks, and clarification questions.
+
+    </p>
+
+</section>
+
+
+
+<!-- =================================================
+     REQUIREMENT GENERATOR
+================================================== -->
+
+<section class="generator-section">
+
+    <div class="input-card">
+
+
+        <!-- CARD HEADER -->
+
+        <div class="card-header">
+
+            <div>
+
+                <p class="small-label">
+                    REQUIREMENT INPUT
+                </p>
+
+
+                <h2>
+                    Analyze Your Requirement
+                </h2>
+
+
+                <p class="description">
+
+                    Describe your software feature and let
+                    TestMind AI create a complete QA analysis.
+
+                </p>
+
+            </div>
+
+
+            <div class="ai-icon">
+                ✨
+            </div>
+
+        </div>
+
+
+
+        <!-- FEATURE NAME -->
+
+        <div class="form-group">
+
+            <label for="featureName">
+                Feature Name
+            </label>
+
+
+            <input
+
+                type="text"
+
+                id="featureName"
+
+                autocomplete="off"
+
+                placeholder="e.g. User Authentication"
+
+            >
+
+        </div>
+
+
+
+        <!-- SOFTWARE REQUIREMENT -->
+
+        <div class="form-group">
+
+            <label for="requirement">
+
+                Software Requirement
+
+            </label>
+
+
+            <textarea
+
+                id="requirement"
+
+                rows="9"
+
+                placeholder="Describe the software feature or requirement you want to test..."
+
+            ></textarea>
+
+        </div>
+
+
+
+        <!-- GENERATE BUTTON -->
+
+        <button
+            id="generateBtn"
+            type="button"
+        >
+
+            <span id="buttonText">
+
+                ✨ Analyze Requirement
+
+            </span>
+
+        </button>
+
+
+        <p class="helper-text">
+
+            Powered by Gemini AI • Structured QA Analysis
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================================
+     HOW IT WORKS
+================================================== -->
+
+<section
+    class="how-it-works"
+    id="how-it-works"
+>
+
+    <p class="small-label">
+
+        HOW IT WORKS
+
+    </p>
+
+
+    <h2>
+
+        From Requirement to Test Strategy
+
+    </h2>
+
+
+
+    <div class="steps-container">
+
+
+        <!-- STEP 1 -->
+
+        <div class="step">
+
+            <div class="step-number">
+                1
+            </div>
+
+
+            <h3>
+                Enter Requirement
+            </h3>
+
+
+            <p>
+
+                Provide your feature name and
+                software requirement.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="step-arrow">
+            →
+        </div>
+
+
+
+        <!-- STEP 2 -->
+
+        <div class="step">
+
+            <div class="step-number">
+                2
+            </div>
+
+
+            <h3>
+                AI Analysis
+            </h3>
+
+
+            <p>
+
+                TestMind AI analyzes functionality,
+                risks, negative scenarios, and edge cases.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="step-arrow">
+            →
+        </div>
+
+
+
+        <!-- STEP 3 -->
+
+        <div class="step">
+
+            <div class="step-number">
+                3
+            </div>
+
+
+            <h3>
+                Get QA Insights
+            </h3>
+
+
+            <p>
+
+                Receive structured test cases and
+                actionable QA insights.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================================
+     RESULTS SECTION
+================================================== -->
+
+<section
+    class="results-section"
+    id="results"
+>
+
+
+    <!-- LOADING -->
+
+    <div
+        id="loading"
+        class="hidden"
+    >
+
+        <div class="loader"></div>
+
+
+        <h3>
+
+            TestMind AI is analyzing your requirement...
+
+        </h3>
+
+
+        <p>
+
+            Generating test cases, risks,
+            and edge cases.
+
+        </p>
+
+    </div>
+
+
+
+    <!-- ERROR MESSAGE -->
+
+    <div
+        id="errorContainer"
+        class="hidden"
+    >
+
+    </div>
+
+
+
+    <!-- AI RESULTS -->
+
+    <div
+        id="resultsContainer"
+        class="hidden"
+    >
+
+    </div>
+
+
+</section>
+```
+
+</main>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+```
+<div>
+
+    <h3>
+        🧠 TestMind AI
+    </h3>
+
+
+    <p>
+
+        Intelligent QA Test Case Generator
+        & Requirement Risk Analyzer
+
+    </p>
+
+</div>
+
+
+
+<div>
+
+    <p>
+
+        Built with Flask • Gemini AI •
+        Structured Output
+
+    </p>
+
+</div>
+```
+
+</footer>
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script
+    src="{{ url_for('static', filename='script.js') }}">
+</script>
+
+</body>
+
+</html>
